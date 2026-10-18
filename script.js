@@ -41,6 +41,83 @@ function showCalculator(type) {
         `;
     }
 
+    
+    else if (type === "sgpa") {
+
+    title.textContent = "📚 SGPA Calculator";
+
+    content.innerHTML = `
+        <p>Select your grade and enter the credits for each subject:</p>
+
+        <select id="grade1">
+            <option value="">Subject 1 Grade</option>
+            <option value="10">A</option>
+            <option value="8">B</option>
+            <option value="7">C</option>
+            <option value="6">D</option>
+            <option value="5">E</option>
+            <option value="0">F</option>
+        </select>
+
+        <input type="number" id="credit1" placeholder="Subject 1 Credits">
+
+        <select id="grade2">
+            <option value="">Subject 2 Grade</option>
+            <option value="10">A</option>
+            <option value="8">B</option>
+            <option value="7">C</option>
+            <option value="6">D</option>
+            <option value="5">E</option>
+            <option value="0">F</option>
+        </select>
+
+        <input type="number" id="credit2" placeholder="Subject 2 Credits">
+
+        <select id="grade3">
+            <option value="">Subject 3 Grade</option>
+            <option value="10">A</option>
+            <option value="8">B</option>
+            <option value="7">C</option>
+            <option value="6">D</option>
+            <option value="5">E</option>
+            <option value="0">F</option>
+        </select>
+
+        <input type="number" id="credit3" placeholder="Subject 3 Credits">
+
+        <br><br>
+
+        <button onclick="calculateSGPA()">Calculate SGPA</button>
+
+        <h3 id="result"></h3>
+    `;
+}
+
+    else if (type === "required") {
+
+    title.textContent = "📝 Marks Required Calculator";
+
+    content.innerHTML = `
+        <p>Enter your marks and target percentage:</p>
+
+        <input type="number" id="currentMarks" placeholder="Marks obtained so far">
+
+        <input type="number" id="currentTotal" placeholder="Total marks so far">
+
+        <input type="number" id="remainingTotal" placeholder="Remaining total marks">
+
+        <input type="number" id="targetPercentage" placeholder="Target percentage">
+
+        <br><br>
+
+        <button onclick="calculateRequiredMarks()">
+            Calculate
+        </button>
+
+        <h3 id="result"></h3>
+    `;
+}
+    
     else if (type === "cgpa") {
 
         title.textContent = "🎓 CGPA Calculator";
@@ -62,7 +139,71 @@ function showCalculator(type) {
         `;
     }
 }
+function calculateSGPA() {
 
+    const grade1 = Number(document.getElementById("grade1").value);
+    const credit1 = Number(document.getElementById("credit1").value);
+
+    const grade2 = Number(document.getElementById("grade2").value);
+    const credit2 = Number(document.getElementById("credit2").value);
+
+    const grade3 = Number(document.getElementById("grade3").value);
+    const credit3 = Number(document.getElementById("credit3").value);
+
+    const totalCredits = credit1 + credit2 + credit3;
+
+    if (totalCredits <= 0) {
+        document.getElementById("result").textContent =
+            "Please enter valid credits.";
+        return;
+    }
+
+    const sgpa =
+        ((grade1 * credit1) +
+        (grade2 * credit2) +
+        (grade3 * credit3)) / totalCredits;
+
+    document.getElementById("result").textContent =
+        "Your SGPA is " + sgpa.toFixed(2);
+}
+
+    function calculateRequiredMarks() {
+
+    const currentMarks =
+        Number(document.getElementById("currentMarks").value);
+
+    const currentTotal =
+        Number(document.getElementById("currentTotal").value);
+
+    const remainingTotal =
+        Number(document.getElementById("remainingTotal").value);
+
+    const targetPercentage =
+        Number(document.getElementById("targetPercentage").value);
+
+    if (
+        currentTotal <= 0 ||
+        remainingTotal <= 0 ||
+        targetPercentage <= 0
+    ) {
+        document.getElementById("result").textContent =
+            "Please enter valid values.";
+        return;
+    }
+
+    const totalMarks =
+        currentTotal + remainingTotal;
+
+    const targetMarks =
+        (targetPercentage / 100) * totalMarks;
+
+    const requiredMarks =
+        targetMarks - currentMarks;
+
+    document.getElementById("result").textContent =
+        "You need " + requiredMarks.toFixed(2) +
+        " marks from the remaining " + remainingTotal + " marks.";
+}
 
 function calculatePercentage() {
 

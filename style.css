@@ -113,3 +113,67 @@ footer {
     background: #111827;
     color: white;
 }
+/* Mobile-friendly improvements */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 25px 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .calculator-card {
+        padding: 20px;
+    }
+
+    .calculator-box {
+        padding: 20px 15px;
+    }
+
+    .calculator-box h2 {
+        font-size: 23px;
+    }
+
+    input,
+    select {
+        width: 100%;
+        max-width: 100%;
+        margin: 6px 0;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 13px;
+        font-size: 16px;
+    }
+
+    footer {
+        padding: 25px 15px;
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Calculator Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Student Calculator Hub</h1>
+        <p>Free calculators for students</p>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <h2>Calculate Your Marks Easily</h2>
+            <p>Simple, fast and completely free student calculators.</p>
+        </section>
+
+        <section class="calculator-grid">
+
+            <div class="calculator-card">
+                <h3>📊 Percentage Calculator</h3>
+                <p>Find your percentage from your marks.</p>
+                <button onclick="showCalculator('percentage')">
+                    Open Calculator
+                </button>
+            </div>
+
+            <div class="calculator-card">
+                <h3>📅 Attendance Calculator</h3>
+                <p>Calculate your current attendance.</p>
+                <button onclick="showCalculator('attendance')">
+                    Open Calculator
+                </button>
+            </div>
+
+            <div class="calculator-card">
+                <h3>🎓 CGPA Calculator</h3>
+                <p>Calculate your CGPA easily.</p>
+                <button onclick="showCalculator('cgpa')">
+                    Open Calculator
+                </button>
+            </div>
+
+        </section>
+
+        <section id="calculator" class="calculator-box">
+
+            <h2 id="calculator-title">Choose a Calculator</h2>
+
+            <div id="calculator-content">
+                <p>Select one of the calculators above.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Student Calculator Hub</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
